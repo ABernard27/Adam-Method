@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
-
+import torch
 # %%
 
 # Instantiate the MNIST dataset
@@ -34,7 +34,7 @@ data = DataLoader(dataset, batch_size=128, shuffle=True)
 class LogisticRegressionModel(nn.Module):
     def __init__(self):
         super(LogisticRegressionModel, self).__init__()
-        self.linear = nn.Linear(28*28, 1)
+        self.linear = nn.Linear(28*28, 10)
         self.sigmoid = nn.Sigmoid()
 
     def forward(self, x):
@@ -69,11 +69,10 @@ for epoch in range(10):
         optimizer.step()
 
         # Stockage of the loss
-        stock.append(res.item())
+    stock.append(res.item())
 
 # %%
 
 plt.plot(stock)
 plt.show()
-
 # %%
