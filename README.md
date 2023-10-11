@@ -11,11 +11,5 @@ CAPEL Alexandre & BERNARD Anne, students at University of Montpellier
 
 ADAM is a method for efficient stochastic optimization. 
 
-Lors d'une descente de gradient, il est parfois difficile de trouver le 
-bon taux d'apprentissage. En effet, la plupart du temps ce taux est fixe 
-et s'il est trop petit cela peut poser des difficultés à trouver le 
-minimum puisque la méthode n'avancera pas assez et elle peut s'arrêter 
-avant de l'atteindre. S'il est trop grand nous avancerons vite mais il est 
-possible de tourner autour du point sans l'atteindre car le pas est trop 
-grand. Il faut donc trouver le pas parfait afin de trouver le minimum. 
+During gradient descent, it is sometimes challenging to find the right learning rate. In fact, most of the time, this rate is fixed, and if it is too small, it can be difficult to find the minimum because the method won't progress enough, and it might stop before reaching it. If it is too large, we will progress quickly, but it is possible to go around the point without reaching it because the step is too large. Therefore, it is necessary to find the perfect step size to reach the minimum.
 
