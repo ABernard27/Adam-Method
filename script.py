@@ -2,7 +2,7 @@
 from torchvision.datasets import MNIST
 from torchvision.transforms import ToTensor
 from torch.utils.data import DataLoader
-from functions.comparizon import get_loss
+from functions.comparison import get_loss
 import matplotlib.pyplot as plt
 
 
@@ -18,7 +18,6 @@ dataset = MNIST(root='./data',
 data = DataLoader(dataset, batch_size=128, shuffle=True)
 
 # %%
-
 # Calcul et affichage pour la régression multinomial
 err_mult = get_loss(data, 'multinomial')
 
@@ -50,3 +49,24 @@ plt.xlabel("Timestep")
 plt.ylabel("Valeur de la négative log-vraisemblance")
 plt.title("Comparaison des méthodes d'optimisation sur un réseau de neurone")
 plt.show()
+
+#%%
+import matplotlib.pyplot as plt
+from torchvision import datasets
+
+# Chargement du jeu de données MNIST
+mnist_data = datasets.MNIST(root='./data', train=True, download=True)
+
+# Affichage des 10 premières images en deux lignes
+fig, axes = plt.subplots(nrows=2, ncols=4, figsize=(10, 5))
+for i, ax in enumerate(axes.flat):
+    img, label = mnist_data[i]
+    ax.imshow(img, cmap='gray')
+    ax.set_title(f"Label: {label}")
+    ax.axis('off')
+
+plt.suptitle("Exemples d'images de MNIST", fontsize=20)
+
+plt.tight_layout()
+plt.show()
+plt.savefig("mnist.png")

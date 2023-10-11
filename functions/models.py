@@ -49,7 +49,7 @@ class NeuralNetwork(nn.Module):
             nn.ReLU(),
             nn.Linear(512, 512),
             nn.ReLU(),
-            nn.Linear(512, 10),
+            nn.Linear(512, 10)
         )
 
     def forward(self, x):
@@ -63,5 +63,5 @@ class NeuralNetwork(nn.Module):
             torch.Tensor: Le tenseur après avoir appliqué la série d'opérations.
         """
         x = self.flatten(x)
-        logits = self.linear_relu_stack(x)
-        return logits
+        x = self.linear_relu_stack(x)
+        return x
