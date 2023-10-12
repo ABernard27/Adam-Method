@@ -1,5 +1,6 @@
 import torch.nn as nn
 
+
 class LogisticRegressionModel(nn.Module):
     def __init__(self, n_features=28*28, n_classes=10):
         """
@@ -8,7 +9,7 @@ class LogisticRegressionModel(nn.Module):
             self: l'objet courant
             n_features: nombre de caractéristiques
             n_classes: nombre de classes
-        
+
         Renvoie:
             None
         """
@@ -29,7 +30,7 @@ class LogisticRegressionModel(nn.Module):
         logits = self.linear(x)
         predictions = self.softmax(logits)
         return predictions
-    
+
 
 class NeuralNetwork(nn.Module):
     def __init__(self):
@@ -54,13 +55,14 @@ class NeuralNetwork(nn.Module):
 
     def forward(self, x):
         """
-        Fonction forward de la classe NeuralNetwork.  
+        Fonction forward de la classe NeuralNetwork.
 
         Paramètres:
             x (torch.Tensor): Le tenseur d'entrée à traiter.
-            
+
         Renvoie:
-            torch.Tensor: Le tenseur après avoir appliqué la série d'opérations.
+            torch.Tensor: Le tenseur après avoir appliqué la série
+            d'opérations.
         """
         x = self.flatten(x)
         x = self.linear_relu_stack(x)
