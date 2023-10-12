@@ -1,6 +1,5 @@
 import torch.nn as nn
 
-
 class MultinomialRegressionModel(nn.Module):
     def __init__(self, n_features=28*28, n_classes=10):
         """
@@ -69,3 +68,19 @@ class NeuralNetwork(nn.Module):
         x = self.flatten(x)
         x = self.linear_relu_stack(x)
         return x
+
+def reset_weights(model):
+    """
+    Réinitialise les poids d'un modèle.
+    
+    Paramètres:
+        model (nn.Module): Le modèle dont les poids doivent être réinitialisés.
+        
+    Renvoie:
+        None
+    """
+    for param in model.parameters():
+        if len(param.shape) > 1:  # Vérifie si le paramètre est une matrice (poids)
+            nn.init.xavier_uniform_(param)
+        else:  # Vérifie si le paramètre est un vecteur (biais)
+            nn.init.zeros_(param)

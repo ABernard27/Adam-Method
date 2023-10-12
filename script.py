@@ -1,4 +1,4 @@
-# %% ------------------------------------------------------ #
+#%% ------------------------------------------------------- #
 #                   Importation de base
 # --------------------------------------------------------- #
 from torchvision.datasets import MNIST
@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from functions.comparison import get_loss
 import matplotlib.pyplot as plt
 
-# %% ------------------------------------------------------ #
+#%% ------------------------------------------------------- #
 #               Chargement du dataset MNIST
 # --------------------------------------------------------- #
 
@@ -32,12 +32,14 @@ plt.tight_layout()
 plt.savefig("./graph/mnist.png")
 plt.show()
 
-# %% ------------------------------------------------------ #
+#%% ------------------------------------------------------- #
 #               Régression multinomiale
 # --------------------------------------------------------- #
 
 # Calcul et affichage pour la régression multinomial
-err_mult = get_loss(data, "multinomial")
+betas = (0.9, 0.999)
+eps = 1e-8
+err_mult = get_loss(data, "multinomial", betas, eps)
 
 plt.figure(figsize=(10, 5))
 plt.plot(err_mult[0], color="red")
@@ -47,8 +49,7 @@ plt.legend(["Adam", "RMSprop", "Adagrad"])
 plt.xlabel("Timestep")
 plt.ylabel("Valeur de la négative log-vraisemblance")
 plt.title(
-    "Comparaison des méthodes d'optimisation pour\
-          une régression multinomiale"
+    "Comparaison des méthodes d'optimisation pour une régression multinomiale"
 )
 
 # Amélioration affichage
@@ -61,12 +62,14 @@ plt.savefig("./graph/multi_graph.png")
 
 plt.show()
 
-# %% ------------------------------------------------------ #
+#%% ------------------------------------------------------- #
 #                   Réseau de neurone
 # --------------------------------------------------------- #
 
 # Calcul et affichage pour le réseau de neurone
-err_nn = get_loss(data, "neural_network")
+betas = (0.9, 0.999)
+eps = 1e-8
+err_nn = get_loss(data, "neural_network", betas, eps)
 
 plt.figure(figsize=(10, 5))
 plt.plot(err_nn[0], color="red")
@@ -86,5 +89,3 @@ plt.grid()
 plt.savefig("./graph/nn_graph.png")
 
 plt.show()
-
-# %%

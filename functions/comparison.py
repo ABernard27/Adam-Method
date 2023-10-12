@@ -1,4 +1,5 @@
 from .models import MultinomialRegressionModel, NeuralNetwork
+from .models import reset_weights
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
@@ -13,15 +14,17 @@ dict = {'multinomial': {'model': [MultinomialRegressionModel() for i in
         }
 
 
-def get_loss(data, model='multinomial'):
+def get_loss(data, model='multinomial', betas=(0.9, 0.999), eps=1e-8):
     """
-    Cette fonction calcule la perte pour un ensemble de données en utilisant
-    le modèle spécifié.
+    Cette fonction calcule la perte de toutes les méthodes pour un ensemble 
+    de données en utilisantle modèle spécifié.
 
     Paramètres:
     - data (Dataloader): L'ensemble de données pour lequel calculer la perte.
     - which (list): Le type de modèle à utiliser pour calculer la perte.
       Doit être dans ['multinomial', 'neural_network'].
+    - betas (tuple): Le paramètre beta pour Adam.
+    - eps (float): Le paramètre epsilon pour Adam.
 
     Retourne:
     - stock (ndarray): Un tableau contenant les valeurs de perte calculées par
@@ -34,7 +37,7 @@ def get_loss(data, model='multinomial'):
     # Initialisation des modèles et des optimiseurs
     model_a, model_grad, model_rms = dict[model]['model']
     loss = dict[model]['loss']
-    adam = optim.Adam(model_a.parameters(), lr=0.001)
+    adam = optim.Adam(model_a.parameters(), lr=0.001, betas=betas, eps=eps)
     rms = optim.RMSprop(model_rms.parameters(), lr=0.001)
     adagrad = optim.Adagrad(model_grad.parameters(), lr=0.001)
 
@@ -60,4 +63,9 @@ def get_loss(data, model='multinomial'):
             # Stockage de la perte
             err[i, batch] = res.item()
 
+    # Réinitialisation des paramètres pour de nouvelles utilisations
+    reset_weights(model_a)
+    reset_weights(model_rms)
+    reset_weights(model_grad)
+    
     return err
