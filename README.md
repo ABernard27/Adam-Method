@@ -7,7 +7,7 @@ OPTIMIZATION](https://browse.arxiv.org/pdf/1412.6980.pdf)
 ### Author
 CAPEL Alexandre & BERNARD Anne, students at University of Montpellier
 
-# Usefull
+## Why?
 
 *Adam* is a method for efficient stochastic optimization. 
 
@@ -19,6 +19,11 @@ Another point : when we have a big dataset we can't calculate the gradient with 
 
 We use the function `torch.optim.adam` in the `pytorch` library to compute the loss of two examples. 
 
-### MNIST
+### Multinomial regression
 
-The first one is the unavoidable dataset `MNIST`. We used the negativ log-likelihood of the multinomial as the objectiv function. The batch size is 128.
+We used the unavoidable dataset `MNIST`. We used the negativ log-likelihood of the multinomial as the objectiv function. The batch size is 128.
+
+### Neural Network 
+
+The neural network used is composed of 2 hidden layers and the output neural is linear. The objective function is a cross entropy.
+
