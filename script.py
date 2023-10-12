@@ -1,4 +1,4 @@
-# --------------------------------------------------------- #
+# %% ------------------------------------------------------ #
 #                   Importation de base
 # --------------------------------------------------------- #
 from torchvision.datasets import MNIST
@@ -8,7 +8,7 @@ from functions.comparison import get_loss
 import matplotlib.pyplot as plt
 
 
-# --------------------------------------------------------- #
+# %% ------------------------------------------------------ #
 #               Chargement du dataset MNIST
 # --------------------------------------------------------- #
 
@@ -33,7 +33,7 @@ plt.tight_layout()
 plt.savefig("./graph/mnist.png")
 plt.show()
 
-# --------------------------------------------------------- #
+# %% ------------------------------------------------------ #
 #               Régression multinomiale
 # --------------------------------------------------------- #
 
@@ -58,11 +58,11 @@ plt.xlim(0, 200)
 plt.grid()
 
 # Enregistrement du graphe
-plt.savefig(".graph/multi_graph.png")
+plt.savefig("./graph/multi_graph.png")
 
 plt.show()
 
-# --------------------------------------------------------- #
+# %% ------------------------------------------------------ #
 #                   Réseau de neurone
 # --------------------------------------------------------- #
 
@@ -84,6 +84,8 @@ plt.xlim(0, 200)
 plt.grid()
 
 # Enregistrement du graphe
-plt.savefig(".graph/nn_graph.png")
+plt.savefig("./graph/nn_graph.png")
 
 plt.show()
+
+# %%

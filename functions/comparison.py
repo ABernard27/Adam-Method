@@ -1,11 +1,12 @@
-from .models import LogisticRegressionModel, NeuralNetwork
+from .models import MultinomialRegressionModel, NeuralNetwork
 import torch.nn as nn
 import torch.optim as optim
 import numpy as np
 
 # Création d'un dictionnaire pour regrouper tous les modèles utilisés et
 # la perte associée
-dict = {'multinomial': {'model': [LogisticRegressionModel() for i in range(3)],
+dict = {'multinomial': {'model': [MultinomialRegressionModel() for i in
+                                  range(3)],
                         'loss': nn.NLLLoss()},
         'neural_network': {'model': [NeuralNetwork() for i in range(3)],
                            'loss': nn.CrossEntropyLoss()}
@@ -33,9 +34,9 @@ def get_loss(data, model='multinomial'):
     # Initialisation des modèles et des optimiseurs
     model_a, model_grad, model_rms = dict[model]['model']
     loss = dict[model]['loss']
-    adam = optim.Adam(model_a.parameters(), lr=0.01)
-    rms = optim.RMSprop(model_rms.parameters(), lr=0.01)
-    adagrad = optim.Adagrad(model_grad.parameters(), lr=0.01)
+    adam = optim.Adam(model_a.parameters(), lr=0.001)
+    rms = optim.RMSprop(model_rms.parameters(), lr=0.001)
+    adagrad = optim.Adagrad(model_grad.parameters(), lr=0.001)
 
     # Initialisation du tableau de stockage
     liste = [(adam, model_a), (rms, model_rms), (adagrad, model_grad)]
