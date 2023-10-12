@@ -21,4 +21,4 @@ We use the function `torch.optim.adam` in the `pytorch` library to compute the l
 
 ### MNIST
 
-The first one is the unavoidable dataset `MNIST`. We used the negativ log-likelihood of the multinomial as the objectiv function. The number of batch is 128 and we choose 
+The first one is the unavoidable dataset `MNIST`. We used the negativ log-likelihood of the multinomial as the objectiv function. The batch size is 128.
