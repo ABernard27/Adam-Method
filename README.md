@@ -17,7 +17,7 @@ Another point : when we have a big dataset we can't calculate the gradient with 
 
 ## Example
 
-We use the function `torch.optim.adam` in the `pytorch` library to compute the loss of two examples. 
+We use the function `torch.optim.adam` in the `pytorch` library to compute the loss of two examples. The results are in the directory [graph](graph). You can find the script used in [script.py](script.py)
 
 ### Multinomial regression
 
