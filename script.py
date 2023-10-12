@@ -7,7 +7,6 @@ from torch.utils.data import DataLoader
 from functions.comparison import get_loss
 import matplotlib.pyplot as plt
 
-
 # %% ------------------------------------------------------ #
 #               Chargement du dataset MNIST
 # --------------------------------------------------------- #
