@@ -7,6 +7,14 @@ OPTIMIZATION](https://browse.arxiv.org/pdf/1412.6980.pdf)
 ### Author
 CAPEL Alexandre & BERNARD Anne, students at University of Montpellier
 
+### Requirements 
+
+To compute the file [script.py](script.py) you have to install some package. You can install them with this command in your terminal :
+```bash
+pip install -r requirements.txt
+```
+
+
 ## Why?
 
 *Adam* is a method for efficient stochastic optimization. 
