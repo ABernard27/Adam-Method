@@ -89,3 +89,5 @@ plt.grid()
 plt.savefig("./graph/nn_graph.png")
 
 plt.show()
+
+# %%
