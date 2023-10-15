@@ -33,5 +33,5 @@ We used the unavoidable dataset `MNIST`. We used the negativ log-likelihood of t
 
 ### Neural Network 
 
-The neural network used is composed of 2 hidden layers and the output neural is linear. The objective function is a cross entropy.
+The neural network used is composed of 2 hidden layers and the output neural is linear. The objective function is a cross entropy. The batch size is also 128.
 
